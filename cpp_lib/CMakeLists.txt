@@ -1,15 +1,15 @@
-project(general_pb2)
+cmake_minimum_required(VERSION 3.5.1)
+project(LIB_DIR_EXAMPLE)
 
-aux_source_directory(${PROJECT_SOURCE_DIR} PB_FILES)
+# Print start
+message("===> Start to build : " ${PROJECT_NAME})
 
-add_library(${PROJECT_NAME} STATIC ${PB_FILES})
+# Include headers
+# include_directories(cpp_lib)
 
-include_directories(${PROJECT_SOURCE_DIR}
-    ${GOOGLE_PROTOBUF_DIR}/include
+# Add library
+add_library(
+    cpp_lib
+    hello_world.cpp
 )
 
-link_directories(${GOOGLE_PROTOBUF_DIR}/lib/)
-
-target_link_libraries(${PROJECT_NAME}
-    protobuf
-)

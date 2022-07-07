@@ -1,15 +1,11 @@
-project(general_pb2)
+cmake_minimum_required(VERSION 3.5.1)
+project(EXEC_DIR_EXAMPLE)
 
-aux_source_directory(${PROJECT_SOURCE_DIR} PB_FILES)
+# Print start
+message("===> Start to build : " ${PROJECT_NAME})
 
-add_library(${PROJECT_NAME} STATIC ${PB_FILES})
+# Add executable
+add_executable(cpp_exec main.cpp)
 
-include_directories(${PROJECT_SOURCE_DIR}
-    ${GOOGLE_PROTOBUF_DIR}/include
-)
-
-link_directories(${GOOGLE_PROTOBUF_DIR}/lib/)
-
-target_link_libraries(${PROJECT_NAME}
-    protobuf
-)
+# Link exec to lib
+target_link_libraries(cpp_exec cpp_lib)
