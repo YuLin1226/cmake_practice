@@ -5,7 +5,9 @@ project(LIB_DIR_EXAMPLE)
 message("===> Start to build : " ${PROJECT_NAME})
 
 # Include headers
-# include_directories(cpp_lib)
+include_directories(
+    include/
+)
 
 # Add library
 add_library(
