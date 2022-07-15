@@ -15,3 +15,8 @@ add_library(
     hello_world.cpp
 )
 
+add_library(
+    function_example
+    function_example.cpp
+)
+
