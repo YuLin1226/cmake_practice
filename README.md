@@ -14,7 +14,7 @@ make
 
 編譯完成後，執行檔會位在
 ```
-cmake_practice/build/cpp_exec/cpp_exec
+cmake_practice/build/cpp_exec/main
 ```
 
 程式庫則位在

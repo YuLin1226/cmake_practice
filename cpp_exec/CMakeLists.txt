@@ -4,20 +4,34 @@ project(EXEC_DIR_EXAMPLE)
 # Print start
 message("===> Start to build : " ${PROJECT_NAME})
 
-# Add executable
-add_executable(cpp_exec main.cpp)
-
-# Include headers: 2 methods
-set(global_include_dir false)
-if(global_include_dir)
-    include_directories(
-        ../cpp_lib/include/
+# Use function to add executable
+function(CompileExample name isGlobalIncude)
+    # add executable
+    add_executable(
+        ${name}
+        ${name}.cpp 
     )
-else()
-    target_include_directories(
-        cpp_exec PRIVATE ../cpp_lib/include/
+    target_link_libraries(
+        ${name} 
+        cpp_lib
     )
-endif()
+    # Link exec to lib
+    target_link_libraries(${name} cpp_lib)
 
-# Link exec to lib
-target_link_libraries(cpp_exec cpp_lib)
+    # Include headers: 2 methods
+    set(global_include_dir ${isGlobalIncude})
+    if(global_include_dir)
+        include_directories(
+            ../cpp_lib/include/
+        )
+    else()
+        target_include_directories(
+            ${name} PRIVATE ../cpp_lib/include/
+        )
+    endif()
+
+endfunction()
+
+CompileExample("main" false)
+
+
