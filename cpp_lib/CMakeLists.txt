@@ -20,3 +20,12 @@ add_library(
     function_example.cpp
 )
 
+function(InstallHeaderAPI name)
+    install(
+        FILES include/cpp_lib/${name}
+        DESTINATION ${CMAKE_SOURCE_DIR}/API
+    )
+endfunction()
+
+InstallHeaderAPI(function_example.h)
+InstallHeaderAPI(hello_world.h)
